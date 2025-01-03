@@ -1,12 +1,186 @@
+//Global Colors
+
+//--** Blue **--
+$-clr-blue-100: hsl(248 50% 95%);
+$-clr-blue-200: hsl(248 50% 85%);
+$-clr-blue-300: hsl(248 55% 75%);
+$-clr-blue-400: hsl(248 60% 65%);
+$-clr-blue-500: hsl(248 65% 55%);
+$-clr-blue-600: hsl(248 60% 45%);
+$-clr-blue-700: hsl(248 55% 35%);
+$-clr-blue-800: hsl(248 50% 25%);
+$-clr-blue-900: hsl(248 40% 15%);
+
+//--** Purple **--
+$-clr-purple-100: hsl(273 40% 95%);
+$-clr-purple-200: hsl(273 45% 85%);
+$-clr-purple-300: hsl(273 50% 75%);
+$-clr-purple-400: hsl(273 55% 65%);
+$-clr-purple-500: hsl(273 60% 55%);
+$-clr-purple-600: hsl(273 55% 45%);
+$-clr-purple-700: hsl(273 50% 35%);
+$-clr-purple-800: hsl(273 45% 25%);
+$-clr-purple-900: hsl(273 35% 15%);
+
+//--** Violet **--
+$-clr-violet-100: hsl(259 40% 95%);
+$-clr-violet-200: hsl(259 45% 85%);
+$-clr-violet-300: hsl(259 50% 75%);
+$-clr-violet-400: hsl(259 55% 75%);
+$-clr-violet-500: hsl(259 60% 55%);
+$-clr-violet-600: hsl(259 55% 45%);
+$-clr-violet-700: hsl(259 50% 35%);
+$-clr-violet-800: hsl(259 45% 25%);
+$-clr-violet-900: hsl(259 35% 15%);
+
+//--** Grey **--
+$-clr-grey-100: hsl(248 15% 95%);
+$-clr-grey-200: hsl(248 15% 85%);
+$-clr-grey-300: hsl(248 15% 75%);
+$-clr-grey-400: hsl(248 15% 65%);
+$-clr-grey-500: hsl(248 15% 55%);
+$-clr-grey-600: hsl(248 15% 45%);
+$-clr-grey-700: hsl(248 15% 35%);
+$-clr-grey-800: hsl(248 15% 25%);
+$-clr-grey-900: hsl(248 15% 15%);
+
+//--** Red **--
+$-clr-red-100: hsl(0 80% 95%);
+$-clr-red-200: hsl(0 75% 85%);
+$-clr-red-300: hsl(0 70% 75%);
+$-clr-red-400: hsl(0 65% 65%);
+$-clr-red-500: hsl(0 70% 55%);
+$-clr-red-600: hsl(0 70% 45%);
+$-clr-red-700: hsl(0 75% 35%);
+$-clr-red-800: hsl(0 80% 25%);
+$-clr-red-900: hsl(0 85% 15%);
+
+//--** Green **--
+$-clr-green-100: hsl(120 70% 95%);
+$-clr-green-200: hsl(120 65% 85%);
+$-clr-green-300: hsl(120 60% 75%);
+$-clr-green-400: hsl(120 55% 65%);
+$-clr-green-500: hsl(120 60% 50%);
+$-clr-green-600: hsl(120 60% 45%);
+$-clr-green-700: hsl(120 65% 35%);
+$-clr-green-800: hsl(120 70% 25%);
+$-clr-green-900: hsl(120 75% 15%);
+
+//--** Yellow **--
+$-clr-yellow-100: hsl(60 85% 95%);
+$-clr-yellow-200: hsl(60 80% 85%);
+$-clr-yellow-300: hsl(60 75% 75%);
+$-clr-yellow-400: hsl(60 70% 65%);
+$-clr-yellow-500: hsl(60 75% 55%);
+$-clr-yellow-600: hsl(60 75% 45%);
+$-clr-yellow-700: hsl(60 80% 35%);
+$-clr-yellow-800: hsl(60 85% 25%);
+$-clr-yellow-900: hsl(60 90% 15%);
+
+//--** Opacity **--
+$-clr-opacity-grey-500: hsl(255 15% 95% / 50%);
+
 $colors: (
-  neutral: (
-    900: #212121,
-    400: #5c5c5c,
-    200: #f8f8f8,
-    100: #ffffff,
+  'primary': (
+    'light': $-clr-blue-100,
+    'soft': $-clr-blue-300,
+    'default': $-clr-blue-500,
+    'hover': $-clr-blue-700,
+    'active': $-clr-blue-800,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-blue-900,
   ),
-  primary: (
-    400: #ff6635,
-    500: #dd4e11,
+  'secondary': (
+    'default': $-clr-purple-500,
+    'hover': $-clr-purple-700,
+    'active': $-clr-purple-800,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-purple-900,
+  ),
+  'success': (
+    'default': $-clr-green-500,
+    'hover': $-clr-green-700,
+    'active': $-clr-green-800,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-green-900,
+  ),
+  'error': (
+    'default': $-clr-red-500,
+    'hover': $-clr-red-700,
+    'active': $-clr-red-800,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-red-900,
+  ),
+  'warning': (
+    'default': $-clr-yellow-500,
+    'hover': $-clr-yellow-700,
+    'active': $-clr-yellow-800,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-yellow-900,
+  ),
+  'info': (
+    'default': $-clr-violet-500,
+    'hover': $-clr-violet-700,
+    'active': $-clr-violet-800,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-violet-900,
+  ),
+  'neutral': (
+    'default': $-clr-grey-100,
+    'default-opacity': $-clr-opacity-grey-500,
+    'subtle': $-clr-grey-200,
+    'hover': $-clr-grey-300,
+    'active': $-clr-grey-400,
+    'disabled': $-clr-grey-400,
+    'medium-dark': $-clr-grey-800,
+    'dark': $-clr-grey-900,
   ),
 );
+
+// contextual color tokens
+$color-primary-light: var(--primary-light);
+$color-primary-soft: var(--primary-soft);
+$color-primary-default: var(--primary-default);
+$color-primary-hover: var(--primary-hover);
+$color-primary-active: var(--primary-active);
+$color-primary-disabled: var(--primary-disabled);
+$color-primary-dark: var(--primary-dark);
+
+$color-secondary-default: var(--secondary-default);
+$color-secondary-hover: var(--secondary-hover);
+$color-secondary-active: var(--secondary-active);
+$color-secondary-disabled: var(--secondary-disabled);
+$color-secondary-dark: var(--secondary-dark);
+
+$color-success-default: var(--success-default);
+$color-success-hover: var(--success-hover);
+$color-success-active: var(--success-active);
+$color-success-disabled: var(--success-disabled);
+$color-success-dark: var(--success-dark);
+
+$color-error-default: var(--error-default);
+$color-error-hover: var(--error-hover);
+$color-error-active: var(--error-active);
+$color-error-disabled: var(--error-disabled);
+$color-error-dark: var(--error-dark);
+
+$color-warning-default: var(--warning-default);
+$color-warning-hover: var(--warning-hover);
+$color-warning-active: var(--warning-active);
+$color-warning-disabled: var(--warning-disabled);
+$color-warning-dark: var(--warning-dark);
+
+$color-info-default: var(--info-default);
+$color-info-hover: var(--info-hover);
+$color-info-active: var(--info-active);
+$color-info-disabled: var(--info-disabled);
+$color-info-dark: var(--info-dark);
+
+$color-neutral-default: var(--neutral-default);
+$color-neutral-default-opacity: var(--neutral-default-opacity);
+$color-neutral-subtle: var(--neutral-subtle);
+$color-neutral-hover: var(--neutral-hover);
+$color-neutral-active: var(--neutral-active);
+$color-neutral-disabled: var(--neutral-disabled);
+$color-neutral-medium-dark: var(--neutral-medium-dark);
+$color-neutral-dark: var(--neutral-dark);

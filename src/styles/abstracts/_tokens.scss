@@ -1,0 +1,89 @@
+@use 'colors' as *;
+@use 'typography' as *;
+@use 'sizes' as *;
+@use 'typography' as *;
+
+// Colors
+/* Background */
+$color-background-default: $color-neutral-default;
+$color-background-subtle: $color-neutral-subtle;
+$color-background-inverse: $color-neutral-dark;
+$color-background-primary: $color-primary-default;
+$color-background-primary: $color-primary-default;
+$color-background-secondary: $color-secondary-default;
+$color-background-success: $color-success-default;
+$color-background-error: $color-error-default;
+$color-background-disabled: $color-neutral-disabled;
+
+/* Foreground */
+$color-foreground-default: $color-neutral-subtle;
+$color-foreground-subtle: $color-neutral-hover;
+$color-foreground-primary: $color-primary-dark;
+
+/* Text */
+$color-text-default: $color-neutral-dark;
+$color-text-subtle: $color-neutral-medium-dark;
+$color-text-inverse: $color-neutral-default;
+$color-text-primary: $color-primary-dark;
+$color-text-secondary: $color-secondary-dark;
+$color-text-success: $color-success-dark;
+$color-text-error: $color-error-dark;
+$color-text-disabled: $color-neutral-disabled;
+
+/* Icons */
+$color-icon-default: $color-neutral-dark;
+$color-icon-subtle: $color-neutral-medium-dark;
+$color-icon-inverse: $color-neutral-default;
+$color-icon-primary: $color-primary-dark;
+$color-icon-primary-hover: $color-primary-hover;
+$color-icon-secondary: $color-secondary-dark;
+$color-icon-success: $color-success-dark;
+$color-icon-error: $color-error-dark;
+$color-icon-disabled: $color-neutral-disabled;
+
+/* Divider */
+$color-divider-default: $color-neutral-subtle;
+$color-divider-subtle: $color-neutral-hover;
+$color-divider-inverse: $color-neutral-default;
+
+/* Border */
+$color-border-default-opacity: $color-neutral-default-opacity;
+$color-border-primary: $color-primary-default;
+
+// Typography
+$font-family-content: $ff-base;
+$font-family-headings: $ff-accent;
+
+$line-height-headings: $size-250;
+$line-height-body: $size-300;
+
+$font-weight-bold: $fw-700;
+$font-weight-medium: $fw-500;
+$font-weight-regular: $fw-400;
+
+$font-size-100: var(--fs-100);
+$font-size-200: var(--fs-200);
+$font-size-300: var(--fs-300);
+$font-size-400: var(--fs-400);
+$font-size-500: var(--fs-500);
+$font-size-600: var(--fs-600);
+$font-size-700: var(--fs-700);
+$font-size-800: var(--fs-800);
+$font-size-900: var(--fs-900);
+
+// Layout
+$grid-gap: $size-300;
+$flex-group-gap: 1rem;
+
+$hero-padding-block: clamp(15rem, 15vh, 20rem);
+$section-padding-block: clamp(3rem, 10vh, 7rem);
+
+$section-padding: clamp(3rem, 10vh, 7rem);
+
+//$container-inline-padding: $size-200;
+$container-min-margin-inline: $size-200;
+$container-max-width: 64rem;
+$container-max-width-narrow: 40rem;
+$container-max-width-wide: 75rem;
+
+$card-body-padding: $size-400;

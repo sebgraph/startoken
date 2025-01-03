@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+
+.display {
+  &-1 {
+    @include heading($font-size-900, $color-text-default, $font-weight-bold);
+  }
+  &-2 {
+    @include heading($font-size-800, $color-text-default, $font-weight-bold);
+  }
+}
+
+.body {
+  &-1 {
+    @include body($font-size-500, $color-text-default, $font-weight-regular);
+  }
+  &-2 {
+    @include body($font-size-400, $color-text-default, $font-weight-regular);
+  }
+}

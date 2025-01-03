@@ -1,17 +1,37 @@
-$ff-sans: "Lato", sans-serif;
-$ff-serif: "Abril Fatface", serif;
+//Font Family
+$-ff-sans: 'Roboto', sans-serif;
+$-ff-serif: 'Raleway', serif;
 
-$ff-base: $ff-sans;
-$ff-accent: $ff-serif;
+$ff-base: $-ff-sans;
+$ff-accent: $-ff-serif;
 
+//Font Sizes
 $font-sizes: (
-  900: clamp(2.5rem, 0.5rem + 10vw, 5rem),
-  800: clamp(2.5rem, 0.5rem + 7vw, 3.75rem),
-  600: clamp(1.4rem, 0.5rem + 3vw, 1.6875rem),
-  500: 1.3125rem,
-  400: 1.125rem,
-  300: 1rem,
+  'small': (
+    '900': 4rem,
+    '800': 3rem,
+    '700': 2.5rem,
+    '600': 2rem,
+    '500': 1.5rem,
+    '400': 1rem,
+    '300': 0.875rem,
+    '200': 0.75rem,
+    '100': 0.625rem,
+  ),
+  'large': (
+    '900': 4rem,
+    '800': 3rem,
+    '700': 2.5rem,
+    '600': 2rem,
+    '500': 1.5rem,
+    '400': 1rem,
+    '300': 0.875rem,
+    '200': 0.75rem,
+    '100': 0.625rem,
+  ),
 );
 
+// Font Weights
 $fw-400: 400;
+$fw-500: 500;
 $fw-700: 700;
