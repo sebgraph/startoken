@@ -1,0 +1,27 @@
+@use '../../styles/abstracts/' as *;
+
+.hero {
+  background: $color-gradient-1;
+  height: 37.5rem;
+  border-radius: 0 0 $border-radius-lg $border-radius-lg;
+  position: relative;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &__headline {
+    color: $color-text-inverse;
+    margin-top: 100px;
+    max-width: 44rem;
+  }
+
+  &__rive-container {
+    position: absolute;
+    width: 80%;
+    height: 400px;
+    bottom: 0;
+  }
+}

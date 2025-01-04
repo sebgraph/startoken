@@ -1,5 +1,13 @@
+import Canvas from '../components/Canvas/Canvas';
+import { Hero } from '../components/Hero/Hero';
+
 const Home = () => {
-  return <h1 className="display-1">Home Page</h1>;
+  return (
+    <>
+      <Hero />
+      <Canvas />
+    </>
+  );
 };
 
 export default Home;

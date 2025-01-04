@@ -17,3 +17,9 @@
     @include body($font-size-400, $color-text-default, $font-weight-regular);
   }
 }
+
+.button {
+  &-1 {
+    @include body($font-size-300, $color-text-default, $font-weight-bold);
+  }
+}

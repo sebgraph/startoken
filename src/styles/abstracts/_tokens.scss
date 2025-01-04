@@ -3,6 +3,8 @@
 @use 'sizes' as *;
 @use 'typography' as *;
 
+$active-theme: $light;
+
 // Colors
 /* Background */
 $color-background-default: $color-neutral-default;
@@ -54,8 +56,8 @@ $color-border-primary: $color-primary-default;
 $font-family-content: $ff-base;
 $font-family-headings: $ff-accent;
 
-$line-height-headings: $size-250;
-$line-height-body: $size-300;
+$line-height-headings: 120%;
+$line-height-body: 150%;
 
 $font-weight-bold: $fw-700;
 $font-weight-medium: $fw-500;
@@ -70,6 +72,11 @@ $font-size-600: var(--fs-600);
 $font-size-700: var(--fs-700);
 $font-size-800: var(--fs-800);
 $font-size-900: var(--fs-900);
+
+// Border Radius
+$border-radius-sm: $size-100;
+$border-radius-md: $size-200;
+$border-radius-lg: $size-300;
 
 // Layout
 $grid-gap: $size-300;

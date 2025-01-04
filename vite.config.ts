@@ -5,8 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 }) */
- 
-
 
 /* import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -23,16 +21,16 @@ export default defineConfig({
   }
 }) */
 
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { fileURLToPath, URL } from 'url'
-import path from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { fileURLToPath, URL } from 'url';
+import path from 'path';
+import svgr from 'vite-plugin-svgr';
 
-
-const __dirname = fileURLToPath(new URL('.', import.meta.url))
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), svgr()],
   css: {
     postcss: 'postcss.config.js',
   },
@@ -41,7 +39,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
         about: path.resolve(__dirname, 'public/about.html'),
-      }
-    }
-  }
-})
+      },
+    },
+  },
+});

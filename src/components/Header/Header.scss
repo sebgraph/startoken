@@ -1,0 +1,26 @@
+@use '../../styles/abstracts/' as *;
+
+.header {
+  padding: $size-100 $size-200;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+
+  &__container {
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__menu-container {
+    display: flex;
+    gap: $size-100;
+  }
+
+  &__menu-item {
+    color: $color-text-inverse;
+    padding: $size-100 $size-050;
+    text-decoration: none;
+  }
+}

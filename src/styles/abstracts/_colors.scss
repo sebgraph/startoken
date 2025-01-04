@@ -80,7 +80,15 @@ $-clr-yellow-900: hsl(60 90% 15%);
 //--** Opacity **--
 $-clr-opacity-grey-500: hsl(255 15% 95% / 50%);
 
-$colors: (
+/* Brand */
+$-clr-brand-gradient-1: linear-gradient(
+  110deg,
+  $-clr-blue-700 0%,
+  $-clr-blue-500 65%,
+  $-clr-purple-500 90%
+);
+
+$light: (
   'primary': (
     'light': $-clr-blue-100,
     'soft': $-clr-blue-300,
@@ -135,6 +143,69 @@ $colors: (
     'medium-dark': $-clr-grey-800,
     'dark': $-clr-grey-900,
   ),
+  'gradient': (
+    '1': $-clr-brand-gradient-1,
+  ),
+);
+
+$dark: (
+  'primary': (
+    'light': $-clr-blue-900,
+    'soft': $-clr-blue-700,
+    'default': $-clr-blue-200,
+    'hover': $-clr-blue-300,
+    'active': $-clr-blue-200,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-blue-100,
+  ),
+  'secondary': (
+    'default': $-clr-purple-200,
+    'hover': $-clr-purple-300,
+    'active': $-clr-purple-200,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-purple-100,
+  ),
+  'success': (
+    'default': $-clr-green-200,
+    'hover': $-clr-green-300,
+    'active': $-clr-green-200,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-green-100,
+  ),
+  'error': (
+    'default': $-clr-red-200,
+    'hover': $-clr-red-300,
+    'active': $-clr-red-200,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-red-100,
+  ),
+  'warning': (
+    'default': $-clr-yellow-200,
+    'hover': $-clr-yellow-300,
+    'active': $-clr-yellow-200,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-yellow-100,
+  ),
+  'info': (
+    'default': $-clr-violet-200,
+    'hover': $-clr-violet-300,
+    'active': $-clr-violet-200,
+    'disabled': $-clr-grey-400,
+    'dark': $-clr-violet-100,
+  ),
+  'neutral': (
+    'default': $-clr-grey-900,
+    'default-opacity': $-clr-opacity-grey-500,
+    'subtle': $-clr-grey-800,
+    'hover': $-clr-grey-900,
+    'active': $-clr-grey-800,
+    'disabled': $-clr-grey-800,
+    'medium-dark': $-clr-grey-400,
+    'dark': $-clr-grey-100,
+  ),
+  'gradient': (
+    '1': $-clr-brand-gradient-1,
+  ),
 );
 
 // contextual color tokens
@@ -184,3 +255,5 @@ $color-neutral-active: var(--neutral-active);
 $color-neutral-disabled: var(--neutral-disabled);
 $color-neutral-medium-dark: var(--neutral-medium-dark);
 $color-neutral-dark: var(--neutral-dark);
+
+$color-gradient-1: var(--gradient-1);
