@@ -1,0 +1,51 @@
+@use '../../styles/abstracts/' as *;
+
+.radio-button {
+  border: solid 1px $color-border-primary;
+  border-radius: $border-radius-md;
+  background-color: $color-background-default;
+  display: flex;
+  align-items: center;
+  padding: $size-200 $size-300;
+  max-width: 600px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s ease-in-out;
+
+  &__labels-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__label {
+    color: $color-text-primary;
+  }
+  &__description {
+    color: $color-text-subtle;
+  }
+
+  & input[type='radio'] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    cursor: pointer;
+  }
+
+  &:has(input[type='radio']:checked) {
+    background-color: $color-background-primary;
+
+    .radio-button__labels-container .radio-button__label,
+    .radio-button__description {
+      color: $color-text-inverse;
+    }
+  }
+
+  &:hover {
+    background-color: $color-background-primary-hover; // Lightened version of the checked color
+    border-color: lighten(#0000ff, 10%);
+  }
+}

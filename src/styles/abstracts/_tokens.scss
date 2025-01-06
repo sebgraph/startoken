@@ -8,11 +8,13 @@ $active-theme: $light;
 // Colors
 /* Background */
 $color-background-default: $color-neutral-default;
+$color-background-default-hover: $color-primary-soft;
 $color-background-subtle: $color-neutral-subtle;
 $color-background-inverse: $color-neutral-dark;
 $color-background-primary: $color-primary-default;
-$color-background-primary: $color-primary-default;
+$color-background-primary-hover: $color-primary-soft;
 $color-background-secondary: $color-secondary-default;
+$color-background-secondary-hover: $color-secondary-default;
 $color-background-success: $color-success-default;
 $color-background-error: $color-error-default;
 $color-background-disabled: $color-neutral-disabled;

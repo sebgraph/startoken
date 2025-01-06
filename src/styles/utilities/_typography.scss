@@ -9,6 +9,33 @@
   }
 }
 
+.heading {
+  &-1 {
+    @include heading($font-size-700, $color-text-default, $font-weight-bold);
+  }
+  &-1-regular {
+    @include heading($font-size-700, $color-text-default, $font-weight-regular);
+  }
+  &-2 {
+    @include heading($font-size-600, $color-text-default, $font-weight-bold);
+  }
+  &-2-regular {
+    @include heading($font-size-600, $color-text-default, $font-weight-regular);
+  }
+  &-3 {
+    @include heading($font-size-500, $color-text-default, $font-weight-bold);
+  }
+  &-3-regular {
+    @include heading($font-size-500, $color-text-default, $font-weight-regular);
+  }
+  &-4 {
+    @include heading($font-size-400, $color-text-default, $font-weight-bold);
+  }
+  &-4-regular {
+    @include heading($font-size-400, $color-text-default, $font-weight-regular);
+  }
+}
+
 .body {
   &-1 {
     @include body($font-size-500, $color-text-default, $font-weight-regular);

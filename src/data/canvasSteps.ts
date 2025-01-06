@@ -3,7 +3,8 @@ export interface CanvasStepData {
   description: string;
   buttonText: string;
   type: string;
-  options?: string[];
+  //options?: string[];
+  options?: { value: string; description: string }[];
   selected: string[];
   isButtonDisabled: boolean;
 }
@@ -22,7 +23,12 @@ const canvasSteps: CanvasStepData[] = [
     description: 'Learn about our amazing features.',
     buttonText: 'Next',
     type: 'radio',
-    options: ['Feature A', 'Feature B', 'Feature C'],
+    options: [
+      { value: 'Personal', description: 'For personal projects or prototypes' },
+      { value: 'Small', description: 'For small-level systems' },
+      { value: 'Medium', description: 'For medium-level systems' },
+      { value: 'Large', description: 'For enterprise-level systems' },
+    ],
     selected: [],
     isButtonDisabled: false,
   },
@@ -31,7 +37,11 @@ const canvasSteps: CanvasStepData[] = [
     description: 'Adjust settings to suit your preferences.',
     buttonText: 'Next',
     type: 'checkbox',
-    options: ['Setting X', 'Setting Y', 'Setting Z'],
+    options: [
+      { value: 'Setting X', description: 'Description of Setting X' },
+      { value: 'Setting Y', description: 'Description of Setting Y' },
+      { value: 'Setting Z', description: 'Description of Setting Z' },
+    ],
     selected: [],
     isButtonDisabled: false,
   },
@@ -40,7 +50,11 @@ const canvasSteps: CanvasStepData[] = [
     description: 'Provide additional details and select export format.',
     buttonText: 'Final',
     type: 'final',
-    options: ['JSON', 'YAML', 'XML'],
+    options: [
+      { value: 'JSON', description: 'Export as JSON format' },
+      { value: 'YAML', description: 'Export as YAML format' },
+      { value: 'XML', description: 'Export as XML format' },
+    ],
     selected: [],
     isButtonDisabled: false,
   },

@@ -1,8 +1,8 @@
 import './Canvas.scss';
 import Step from './Step';
-import useCanvasSteps from '../../hooks/useCanvasSteps';
 import canvasSteps from '../../data/canvasSteps';
 import { CanvasStepData } from '../../data/canvasSteps';
+import useCanvasSteps from '../../hooks/useCanvasSteps';
 
 const Canvas: React.FC = () => {
   const {
@@ -11,28 +11,70 @@ const Canvas: React.FC = () => {
     projectInfo,
     exportFormat,
     handleNext,
+    handlePrevious,
     updateSelections,
     updateProjectInfo,
-    handleRestart,
     isButtonDisabled,
+    isButtonActive,
+    handleRestart,
   } = useCanvasSteps();
 
   const currentStepData: CanvasStepData = canvasSteps[currentStep];
 
+  const handleStepChange = (direction: 'next' | 'previous') => {
+    if (direction === 'next') {
+      handleNext();
+    } else if (direction === 'previous') {
+      handlePrevious();
+    }
+  };
+
   return (
     <section>
+      {/* Render Stepper Navigation (except on the first step) */}
+      {currentStep !== 0 && (
+        <div className="stepper">
+          <button
+            onClick={() => handleStepChange('previous')}
+            disabled={currentStep === 1}
+            className={currentStep === 1 ? 'active' : ''}
+          >
+            Project Size
+          </button>
+          <button
+            onClick={() => handleStepChange('next')}
+            disabled={currentStep === 2}
+            className={currentStep === 2 ? 'active' : ''}
+          >
+            Token Types
+          </button>
+          <button
+            onClick={() => handleStepChange('next')}
+            disabled={currentStep === 3}
+            className={currentStep === 3 ? 'active' : ''}
+          >
+            Generate the Template
+          </button>
+        </div>
+      )}
+
+      {/* Render Current Step */}
       <Step
-        {...currentStepData} // Spread the step data for the current step
-        selected={selections[currentStep] || []} // Pass selected options for the current step
-        projectInfo={projectInfo} // Pass projectInfo from the hook
-        exportFormat={exportFormat} // Pass exportFormat from the hook
-        onUpdateSelections={updateSelections} // Pass the updateSelections function to handle selection changes
+        {...currentStepData}
+        selected={selections[currentStep] || []}
+        projectInfo={projectInfo}
+        exportFormat={exportFormat}
+        onUpdateSelections={updateSelections}
         onUpdateProjectInfo={updateProjectInfo}
-        onNext={handleNext} // Pass handleNext function to move to the next step
-        onRestart={handleRestart} // Pass handleRestart function to reset everything
-        isButtonDisabled={isButtonDisabled()} // Disable the button if needed based on current step
+        onNext={handleNext}
+        //onPrevious={handlePrevious}
+        onRestart={handleRestart}
+        isButtonDisabled={isButtonDisabled()}
+        isButtonActive={isButtonActive}
+        currentStep={currentStep} // Pass currentStep to Step
       />
     </section>
   );
 };
+
 export default Canvas;
