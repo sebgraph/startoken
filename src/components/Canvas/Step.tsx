@@ -3,6 +3,7 @@ import './Canvas.scss';
 import { CanvasStepData } from '../../data/canvasSteps';
 import RadioButton from '../RadioButton/RadioButton';
 import Checkbox from '../Checkbox/Checkbox';
+import TextArea from '../TextArea/TextArea';
 
 export interface StepProps extends CanvasStepData {
   currentStep: number;
@@ -63,9 +64,11 @@ const Step: React.FC<StepProps> = ({
 
   return (
     <section className="canvas-container">
-      <div className="container">
-        <h2 className="display-2">{title}</h2>
-        <p className="body-2">{description}</p>
+      <div className="step__container">
+        <div className="step__text-container">
+          <h2 className="display-2 step__title">{title}</h2>
+          <p className="body-2 step__description">{description}</p>
+        </div>
 
         {type === 'radio' &&
           options.map(option => (
@@ -76,6 +79,7 @@ const Step: React.FC<StepProps> = ({
               description={option.description}
               checked={selected.includes(option.value)}
               onChange={handleRadioChange}
+              className="step__radio-button"
             />
           ))}
 
@@ -85,23 +89,24 @@ const Step: React.FC<StepProps> = ({
               key={option.value}
               value={option.value}
               label={option.value}
+              description={option.description}
               checked={selected.includes(option.value)}
               onChange={e => handleCheckboxChange(e, option.value)}
+              className="step__checkbox"
             />
           ))}
 
         {type === 'final' && (
           <div>
-            <label>
-              Project Info:
-              <textarea
-                value={projectInfo}
-                onChange={e => onUpdateProjectInfo(e.target.value)}
-              />
-            </label>
+            <TextArea
+              label="Project Info:"
+              value={projectInfo}
+              onChange={e => onUpdateProjectInfo(e.target.value)}
+              className="step__textarea"
+            />
 
             <div>
-              <span className="radio-group-label">Export Format:</span>
+              <span className="step__radio-button-label">Export Format:</span>
               {options?.map(option => (
                 <RadioButton
                   key={option.value}
@@ -109,7 +114,8 @@ const Step: React.FC<StepProps> = ({
                   label={option.value}
                   description={option.description}
                   checked={exportFormat === option.value}
-                  onChange={() => onUpdateSelections([option.value])}
+                  onChange={() => onUpdateSelections([option.value])} // Use onUpdateSelections
+                  className="step__radio-button"
                 />
               ))}
             </div>

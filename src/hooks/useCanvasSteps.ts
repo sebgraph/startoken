@@ -1,47 +1,81 @@
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import canvasSteps from '../data/canvasSteps';
 
 const useCanvasSteps = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [selections, setSelections] = useState<{ [key: number]: string[] }>({});
   const [projectInfo, setProjectInfo] = useState('');
-  const [exportFormat, setExportFormat] = useState(''); // State for export format
-  const [isButtonActive, setIsButtonActive] = useState(false); // Track if button is active
+  const [exportFormat, setExportFormat] = useState('');
+  const [visitedSteps, setVisitedSteps] = useState(new Set<number>());
 
-  const handleNext = () => {
-    setCurrentStep(prevStep =>
-      prevStep < canvasSteps.length - 1 ? prevStep + 1 : prevStep
-    );
+  const markStepAsVisited = (stepIndex: number) => {
+    setVisitedSteps(prev => new Set([...prev, stepIndex]));
   };
 
-  const handlePrevious = () => {
-    setCurrentStep(prevStep => (prevStep > 0 ? prevStep - 1 : 0));
-  };
-
-  const updateSelections = (selected: string[]) => {
-    const step = canvasSteps[currentStep]; // Get the current step's type
-    if (step.type === 'radio') {
-      if (currentStep === canvasSteps.length - 1) {
-        // Update export format if it's the final step
-        setExportFormat(selected[0]);
-        console.log('Export format updated:', selected[0]);
-      } else {
-        // Update selections for other radio steps
-        setSelections(prev => ({
-          ...prev,
-          [currentStep]: selected,
-        }));
-      }
-    } else if (step.type === 'checkbox') {
-      setSelections(prev => ({
-        ...prev,
-        [currentStep]: selected,
-      })); // Update selections for checkbox step
+  const handleNextStep = () => {
+    if (currentStep < canvasSteps.length - 1) {
+      markStepAsVisited(currentStep + 1);
+      setCurrentStep(prev => prev + 1);
     }
   };
 
-  const updateProjectInfo = (text: string) => {
-    setProjectInfo(text);
+  const handlePreviousStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep(prev => prev - 1);
+    }
+  };
+
+  const handleStepChange = (stepIndex: number) => {
+    if (stepIndex >= 0 && stepIndex < canvasSteps.length) {
+      setCurrentStep(stepIndex);
+      markStepAsVisited(stepIndex);
+    }
+  };
+
+  const updateSelections = (selected: string[]) => {
+    setSelections(prev => ({
+      ...prev,
+      [currentStep]: selected,
+    }));
+    if (canvasSteps[currentStep]?.type === 'final') {
+      setExportFormat(selected[0]);
+    }
+  };
+
+  const updateProjectInfo = (text: string) => setProjectInfo(text);
+
+  const isStepValid = useCallback(() => {
+    const step = canvasSteps[currentStep];
+    if (step?.type === 'checkbox') return selections[currentStep]?.length > 0;
+    if (step?.type === 'radio') return selections[currentStep]?.length === 1;
+    if (step?.type === 'final')
+      return projectInfo.trim() && exportFormat.trim();
+    return true;
+  }, [currentStep, selections, projectInfo, exportFormat]);
+
+  const getStepState = useCallback(
+    (stepIndex: number) => {
+      if (stepIndex === currentStep) return 'current';
+      if (visitedSteps.has(stepIndex)) return 'visited';
+      return 'disabled';
+    },
+    [currentStep, visitedSteps]
+  );
+
+  //For Step
+  const isStepButtonDisabled = () => {
+    const step = canvasSteps[currentStep];
+
+    if (step.type === 'checkbox') {
+      return !selections[currentStep]?.length; // Disable if no checkbox selected
+    }
+    if (step.type === 'radio') {
+      return selections[currentStep]?.length !== 1; // Disable if no radio option selected
+    }
+    if (step.type === 'final') {
+      return !projectInfo.trim() || !exportFormat.trim(); // Both fields are required
+    }
+    return false;
   };
 
   const handleRestart = () => {
@@ -49,50 +83,23 @@ const useCanvasSteps = () => {
     setSelections({});
     setProjectInfo('');
     setExportFormat('');
-    setIsButtonActive(false);
+    setVisitedSteps(new Set([0]));
   };
-
-  // Handling button disabled state based on step type
-  const isButtonDisabled = () => {
-    const step = canvasSteps[currentStep];
-    if (step.type === 'checkbox') {
-      return !selections[currentStep]?.length; // Button is disabled if no checkboxes are selected
-    }
-    if (step.type === 'radio') {
-      return selections[currentStep]?.length !== 1; // Must select one option
-    }
-    if (step.type === 'final') {
-      return !projectInfo || !exportFormat; // Must provide both project info and export format
-    }
-    return false;
-  };
-
-  // Use useEffect to update the button active state based on selections, projectInfo, exportFormat
-  useEffect(() => {
-    const step = canvasSteps[currentStep];
-    if (step.type === 'checkbox') {
-      // The button is active if selections are made
-      setIsButtonActive(selections[currentStep]?.length > 0);
-    } else if (step.type === 'radio') {
-      setIsButtonActive(selections[currentStep]?.length === 1); // Button is active if one option is selected
-    } else if (step.type === 'final') {
-      // The button is active if both projectInfo and exportFormat are provided
-      setIsButtonActive(Boolean(projectInfo && exportFormat));
-    }
-  }, [currentStep, selections, projectInfo, exportFormat]); // Dependencies: update when these change
 
   return {
     currentStep,
+    handleNextStep,
+    handlePreviousStep,
+    handleStepChange,
+    getStepState,
     selections,
     projectInfo,
     exportFormat,
-    handleNext,
-    handlePrevious,
     updateSelections,
     updateProjectInfo,
     handleRestart,
-    isButtonDisabled,
-    isButtonActive, // Pass the button state
+    isButtonDisabled: () => !isStepValid(),
+    isStepButtonDisabled,
   };
 };
 

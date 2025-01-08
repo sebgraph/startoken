@@ -32,7 +32,7 @@ $color-text-primary: $color-primary-dark;
 $color-text-secondary: $color-secondary-dark;
 $color-text-success: $color-success-dark;
 $color-text-error: $color-error-dark;
-$color-text-disabled: $color-neutral-disabled;
+$color-text-disabled: $color-neutral-active;
 
 /* Icons */
 $color-icon-default: $color-neutral-dark;
@@ -79,10 +79,29 @@ $font-size-900: var(--fs-900);
 $border-radius-sm: $size-100;
 $border-radius-md: $size-200;
 $border-radius-lg: $size-300;
+$border-radius-full: 999px;
 
 // Layout
 $grid-gap: $size-300;
 $flex-group-gap: 1rem;
+
+//Padding
+$pd-sm: $size-100;
+$pd-xs: $size-050;
+$pd-md: $size-150;
+$pd-lg: $size-200;
+$pd-xl: $size-250;
+$pd-xxl: $size-300;
+$pd-xxxl: $size-400;
+
+//Margin
+$mg-sm: $size-100;
+$mg-xs: $size-050;
+$mg-md: $size-150;
+$mg-lg: $size-200;
+$mg-xl: $size-250;
+$mg-xxl: $size-300;
+$mg-xxxl: $size-400;
 
 $hero-padding-block: clamp(15rem, 15vh, 20rem);
 $section-padding-block: clamp(3rem, 10vh, 7rem);

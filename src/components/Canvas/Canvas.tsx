@@ -1,78 +1,61 @@
 import './Canvas.scss';
 import Step from './Step';
-import canvasSteps from '../../data/canvasSteps';
-import { CanvasStepData } from '../../data/canvasSteps';
+import canvasSteps, { CanvasStepData } from '../../data/canvasSteps';
 import useCanvasSteps from '../../hooks/useCanvasSteps';
+import Stepper from '../Stepper/Stepper';
 
 const Canvas: React.FC = () => {
   const {
     currentStep,
+    handleStepChange,
     selections,
     projectInfo,
     exportFormat,
-    handleNext,
-    handlePrevious,
+    handleNextStep,
+    getStepState,
     updateSelections,
     updateProjectInfo,
     isButtonDisabled,
-    isButtonActive,
+    isStepButtonDisabled,
     handleRestart,
   } = useCanvasSteps();
 
-  const currentStepData: CanvasStepData = canvasSteps[currentStep];
+  const currentStepData: CanvasStepData | undefined = canvasSteps[currentStep];
 
-  const handleStepChange = (direction: 'next' | 'previous') => {
-    if (direction === 'next') {
-      handleNext();
-    } else if (direction === 'previous') {
-      handlePrevious();
-    }
-  };
+  if (!currentStepData) {
+    return <div>Error: Step data not found.</div>;
+  }
 
   return (
-    <section>
-      {/* Render Stepper Navigation (except on the first step) */}
+    <section className="canvas container" aria-label="Canvas Workflow">
+      {/* Render Stepper Navigation */}
       {currentStep !== 0 && (
-        <div className="stepper">
-          <button
-            onClick={() => handleStepChange('previous')}
-            disabled={currentStep === 1}
-            className={currentStep === 1 ? 'active' : ''}
-          >
-            Project Size
-          </button>
-          <button
-            onClick={() => handleStepChange('next')}
-            disabled={currentStep === 2}
-            className={currentStep === 2 ? 'active' : ''}
-          >
-            Token Types
-          </button>
-          <button
-            onClick={() => handleStepChange('next')}
-            disabled={currentStep === 3}
-            className={currentStep === 3 ? 'active' : ''}
-          >
-            Generate the Template
-          </button>
-        </div>
+        <nav className="canvas__stepper" aria-label="Stepper Navigation">
+          <Stepper
+            currentStep={currentStep}
+            handleStepChange={handleStepChange}
+            getStepState={getStepState}
+            isButtonDisabled={isButtonDisabled}
+          />
+        </nav>
       )}
 
       {/* Render Current Step */}
-      <Step
-        {...currentStepData}
-        selected={selections[currentStep] || []}
-        projectInfo={projectInfo}
-        exportFormat={exportFormat}
-        onUpdateSelections={updateSelections}
-        onUpdateProjectInfo={updateProjectInfo}
-        onNext={handleNext}
-        //onPrevious={handlePrevious}
-        onRestart={handleRestart}
-        isButtonDisabled={isButtonDisabled()}
-        isButtonActive={isButtonActive}
-        currentStep={currentStep} // Pass currentStep to Step
-      />
+      <article className="canvas__step">
+        <Step
+          {...currentStepData}
+          selected={selections[currentStep] || []}
+          projectInfo={projectInfo}
+          exportFormat={exportFormat}
+          onUpdateSelections={updateSelections}
+          onUpdateProjectInfo={updateProjectInfo}
+          onNext={handleNextStep}
+          onRestart={handleRestart}
+          isButtonDisabled={isStepButtonDisabled()} // Step-specific logic
+          currentStep={currentStep}
+          isButtonActive={currentStep !== canvasSteps.length - 1}
+        />
+      </article>
     </section>
   );
 };

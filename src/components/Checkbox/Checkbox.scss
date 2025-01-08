@@ -1,0 +1,44 @@
+@use '../../styles/abstracts/' as *;
+@use 'sass:color';
+
+.checkbox {
+  border: solid 1px $color-border-primary;
+  border-radius: $border-radius-md;
+  background-color: $color-background-default;
+  display: flex;
+  align-items: center;
+  padding: $size-200 $size-300;
+  max-width: 600px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  gap: $mg-md;
+
+  &__labels-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__label {
+    color: $color-text-primary;
+  }
+  &__description {
+    color: $color-text-subtle;
+  }
+
+  &:has(input[type='checkbox']:checked) {
+    background-color: $color-background-primary;
+
+    .checkbox__labels-container .checkbox__label,
+    .checkbox__description {
+      color: $color-text-inverse;
+    }
+  }
+
+  &:hover {
+    background-color: $color-background-primary-hover; // Lightened version of the checked color
+    border-color: color.adjust(#0000ff, $lightness: 10%);
+  }
+}

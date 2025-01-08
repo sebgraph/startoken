@@ -1,3 +1,4 @@
+@use 'sass:color';
 //Global Colors
 
 //--** Blue **--
@@ -88,10 +89,30 @@ $-clr-brand-gradient-1: linear-gradient(
   $-clr-purple-500 90%
 );
 
+$-clr-brand-gradient-2: linear-gradient(
+  0deg,
+  $-clr-purple-500 0%,
+  $-clr-blue-900 100%,
+  0
+);
+
+$-clr-brand-gradient-3: linear-gradient(
+  180deg,
+  rgba($-clr-blue-100, 0.3) 0%,
+  rgba($-clr-blue-300, 0.3) 100%
+);
+
+$-clr-brand-gradient-4: linear-gradient(
+  0deg,
+  $-clr-blue-300 0%,
+  $-clr-red-500 100%,
+  0
+);
+
 $light: (
   'primary': (
     'light': $-clr-blue-100,
-    'soft': $-clr-blue-300,
+    'soft': $-clr-blue-200,
     'default': $-clr-blue-500,
     'hover': $-clr-blue-700,
     'active': $-clr-blue-800,
@@ -138,13 +159,16 @@ $light: (
     'default-opacity': $-clr-opacity-grey-500,
     'subtle': $-clr-grey-200,
     'hover': $-clr-grey-300,
-    'active': $-clr-grey-400,
-    'disabled': $-clr-grey-400,
+    'active': $-clr-grey-500,
+    'disabled': $-clr-grey-200,
     'medium-dark': $-clr-grey-800,
     'dark': $-clr-grey-900,
   ),
   'gradient': (
     '1': $-clr-brand-gradient-1,
+    '2': $-clr-brand-gradient-2,
+    '3': $-clr-brand-gradient-3,
+    '4': $-clr-brand-gradient-4,
   ),
 );
 
@@ -205,6 +229,9 @@ $dark: (
   ),
   'gradient': (
     '1': $-clr-brand-gradient-1,
+    '2': $-clr-brand-gradient-2,
+    '3': $-clr-brand-gradient-3,
+    '4': $-clr-brand-gradient-4,
   ),
 );
 
@@ -257,3 +284,6 @@ $color-neutral-medium-dark: var(--neutral-medium-dark);
 $color-neutral-dark: var(--neutral-dark);
 
 $color-gradient-1: var(--gradient-1);
+$color-gradient-2: var(--gradient-2);
+$color-gradient-3: var(--gradient-3);
+$color-gradient-4: var(--gradient-4);

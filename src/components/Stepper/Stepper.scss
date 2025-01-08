@@ -1,0 +1,19 @@
+@use '../../styles/abstracts/' as *;
+
+.stepper-container {
+  display: flex;
+  align-items: center;
+  background: $color-gradient-3;
+  padding: $pd-xxl $pd-lg;
+  border-radius: $border-radius-lg;
+  //width: 100%;
+  gap: $mg-md;
+}
+
+.active {
+  color: blue;
+}
+
+.disabled {
+  color: grey;
+}

@@ -6,6 +6,7 @@ interface RadioButtonProps {
   description: string;
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
 }
 
 const RadioButton: React.FC<RadioButtonProps> = ({
@@ -14,9 +15,10 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   description,
   checked,
   onChange,
+  className,
 }) => {
   return (
-    <div className="radio-button">
+    <div className={`radio-button ${className || ''}`}>
       <input
         id={value}
         type="radio"

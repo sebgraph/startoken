@@ -1,4 +1,5 @@
 @use '../../styles/abstracts/' as *;
+@use 'sass:color';
 
 .radio-button {
   border: solid 1px $color-border-primary;
@@ -46,6 +47,6 @@
 
   &:hover {
     background-color: $color-background-primary-hover; // Lightened version of the checked color
-    border-color: lighten(#0000ff, 10%);
+    border-color: color.adjust(#0000ff, $lightness: 10%);
   }
 }

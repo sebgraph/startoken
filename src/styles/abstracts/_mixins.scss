@@ -26,13 +26,13 @@
 
 @mixin heading(
   $fs,
-  $color,
+  //$color,
   $fw,
   $ff: tokens.$font-family-headings,
   $lh: tokens.$line-height-headings
 ) {
   font-size: $fs;
-  color: $color;
+  //color: $color;
   font-weight: $fw;
 
   font-family: $ff;
@@ -41,13 +41,13 @@
 
 @mixin body(
   $fs,
-  $color,
+  //$color,
   $fw,
   $ff: tokens.$font-family-content,
   $lh: tokens.$line-height-body
 ) {
   font-size: $fs;
-  color: $color;
+  //color: $color;
   font-weight: $fw;
 
   font-family: $ff;

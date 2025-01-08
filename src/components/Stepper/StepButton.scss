@@ -1,0 +1,39 @@
+@use '../../styles/abstracts/' as *;
+
+.step-button {
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: $pd-md;
+  border-radius: $border-radius-full;
+  cursor: pointer;
+  gap: $mg-sm;
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.current {
+    background-color: $color-background-primary-hover;
+    color: $color-text-primary;
+    border: 2px solid $color-border-primary;
+  }
+
+  &.visited {
+    background-color: $color-background-default;
+    border: 1px solid $color-border-primary;
+    color: $color-text-primary;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      background-color: $color-background-default-hover;
+    }
+  }
+
+  &.disabled {
+    background-color: $color-background-disabled;
+    color: $color-text-disabled;
+    cursor: not-allowed;
+  }
+}
